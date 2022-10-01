@@ -6,6 +6,7 @@ Separate personal info and work info
 
 Still trying to figure out how to ask user to upload photo.
 
+
 9.30.2022 Update:
 
 Finish basic designing.
