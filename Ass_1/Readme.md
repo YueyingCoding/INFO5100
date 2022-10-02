@@ -15,6 +15,7 @@ The application is now able to save employees' info
 
 Trying to figure out how to save and display photo and how to search profile with keywords.
 
+
 10.1.2022 Update:
 
 Fixed the save and display image problem.
@@ -22,6 +23,7 @@ Fixed the save and display image problem.
 Solved search function.
 
 Corrected some variables' datatype.
+
 
 10.2.2022 Update:
 
