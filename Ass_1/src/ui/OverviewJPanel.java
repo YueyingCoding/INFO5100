@@ -604,32 +604,43 @@ public class OverviewJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel)tblOverview.getModel();
         EmployeeInfo selectedEmployee = (EmployeeInfo)model.getValueAt(selectedRowIndex, 0);
         
-        history.deleteEmployee(selectedEmployee);
-        
-        String Name = txtName.getText();
-        int Age = Integer.parseInt(txtAge.getText());
-        int EmployeeID = Integer.parseInt(txtEmployeeID.getText());
-        String Gender = cmbGender.getSelectedItem().toString();
-        Date StartDate = (Date)txtStartDate.getValue();
-        int Level = Integer.parseInt(txtLevel.getText());
-        String Teaminfo = txtTeamInfo.getText();
-        String PositionTitle = txtPosTitle.getText();
-        String CellNum = txtCellNum.getText();
-        String EmailAdd = txtEmailAdd.getText();
-        ImageIcon image = (ImageIcon)lblPicture.getIcon();
-        
-        EmployeeInfo ei = history.addNewEmployees();
-        ei.setAge(Age);
-        ei.setCellNum(CellNum);
-        ei.setEmailAdd(EmailAdd);
-        ei.setEmployeeID(EmployeeID);
-        ei.setGender(Gender);
-        ei.setLevel(Level);
-        ei.setName(Name);
-        ei.setStartDate(StartDate);
-        ei.setTeaminfo(Teaminfo);
-        ei.setPositionTitle(PositionTitle);
-        ei.setImage(image);
+        selectedEmployee.setName(txtName.getText());
+        selectedEmployee.setAge(Integer.parseInt(txtAge.getText()));
+        selectedEmployee.setEmployeeID(Integer.parseInt(txtEmployeeID.getText()));
+        selectedEmployee.setGender(cmbGender.getSelectedItem().toString());
+        selectedEmployee.setStartDate((Date)txtStartDate.getValue());
+        selectedEmployee.setLevel(Integer.parseInt(txtLevel.getText()));
+        selectedEmployee.setTeaminfo(txtTeamInfo.getText());
+        selectedEmployee.setPositionTitle(txtPosTitle.getText());
+        selectedEmployee.setCellNum(txtCellNum.getText());
+        selectedEmployee.setEmailAdd(txtEmailAdd.getText());
+        selectedEmployee.setImage((ImageIcon)lblPicture.getIcon());
+//        history.deleteEmployee(selectedEmployee);
+//        
+//        String Name = txtName.getText();
+//        int Age = Integer.parseInt(txtAge.getText());
+//        int EmployeeID = Integer.parseInt(txtEmployeeID.getText());
+//        String Gender = cmbGender.getSelectedItem().toString();
+//        Date StartDate = (Date)txtStartDate.getValue();
+//        int Level = Integer.parseInt(txtLevel.getText());
+//        String Teaminfo = txtTeamInfo.getText();
+//        String PositionTitle = txtPosTitle.getText();
+//        String CellNum = txtCellNum.getText();
+//        String EmailAdd = txtEmailAdd.getText();
+//        ImageIcon image = (ImageIcon)lblPicture.getIcon();
+//        
+//        EmployeeInfo ei = history.addNewEmployees();
+//        ei.setAge(Age);
+//        ei.setCellNum(CellNum);
+//        ei.setEmailAdd(EmailAdd);
+//        ei.setEmployeeID(EmployeeID);
+//        ei.setGender(Gender);
+//        ei.setLevel(Level);
+//        ei.setName(Name);
+//        ei.setStartDate(StartDate);
+//        ei.setTeaminfo(Teaminfo);
+//        ei.setPositionTitle(PositionTitle);
+//        ei.setImage(image);
         
         JOptionPane.showMessageDialog(this, "Employee Info Updated.");
     }//GEN-LAST:event_btnUpdateActionPerformed
