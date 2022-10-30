@@ -1922,6 +1922,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         String password = pwdPassword.getText();
         int flag = 0;
         int i = 0;
+        
         for (patient ei : patientset.getHistory()){
             if (ei.getUsername().equals(username) & (ei.getPassword().equals(password))){
                 flag = 1;
@@ -1945,6 +1946,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         if(flag == 0){
             JOptionPane.showMessageDialog(this, "Wrong Username or Password.");
         }
+        
 //        admin ei = set.getHistory();
 //        if (ei.getUsername().equals(username) & ei.getPassword().equals(password)){
 //        

@@ -5,6 +5,7 @@
 package ui;
 
 import static java.lang.reflect.Array.set;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.ActionHistory;
 import model.adminset;
@@ -188,11 +189,16 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
         // TODO add your handling code here:
 //        try to parse the appointmentlist object to the doctor panel.
+        if(doctorset.getHistory().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Doctors in System.");
+        }
+        else{
         DoctorLoginPanel doctorloginPanel = new DoctorLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
         patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(doctorloginPanel);
         doctorloginPanel.setVisible(true);
+        }
 //        DoctorLoginPanel doctorloginPanel = new DoctorLoginPanel(appointmentlist, doctorset, encounterhistory);
 //        splitPane.setRightComponent(doctorloginPanel);
 //        doctorloginPanel.setVisible(true);
@@ -201,11 +207,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityAdminActionPerformed
         // TODO add your handling code here:
+        if(communityadminset.getHistory().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Community Administrators in System.");
+        }
+        else{
         CommunityAdminLoginPanel adminloginPanel = new CommunityAdminLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
         patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(adminloginPanel);
         adminloginPanel.setVisible(true);
+        }
 //        CommunityAdminLoginPanel adminloginPanel = new CommunityAdminLoginPanel(communityadminset);
 //        splitPane.setRightComponent(adminloginPanel);
 //        adminloginPanel.setVisible(true);
@@ -213,11 +224,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
+        if(patientset.getHistory().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Patients in System.");
+        }
+        else{
         PatientLoginPanel patientloginPanel = new PatientLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
         patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(patientloginPanel);
         patientloginPanel.setVisible(true);
+        }
 //        PatientLoginPanel patientloginPanel = new PatientLoginPanel(appointmentlist, doctorset, encounterhistory);
 //        splitPane.setRightComponent(patientloginPanel);
 //        patientloginPanel.setVisible(true);
@@ -234,11 +250,16 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalAdminActionPerformed
         // TODO add your handling code here:
+        if(hospitaladminset.getHistory().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Hospital Administrators in System.");
+        }
+        else{
         HospitalAdminLoginPanel hospitaladminloginPanel = new HospitalAdminLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
         patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(hospitaladminloginPanel);
         hospitaladminloginPanel.setVisible(true);
+        }
 //        HospitalAdminLoginPanel hospitaladminloginPanel = new HospitalAdminLoginPanel(hospitaladminset);
 //        splitPane.setRightComponent(hospitaladminloginPanel);
 //        hospitaladminloginPanel.setVisible(true);
