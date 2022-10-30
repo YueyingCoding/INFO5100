@@ -15,7 +15,7 @@ public class hospital {
     private String HospitalNum;
     private String HospitalEmail;
     private String PostalCode;
-
+    
     public String getHospitalName() {
         return HospitalName;
     }

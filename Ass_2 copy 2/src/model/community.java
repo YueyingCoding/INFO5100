@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author chengzhishi
@@ -13,7 +15,28 @@ public class community {
     private int population;
     private float area;
     private String Name;
+    private ArrayList<house> houses;
 
+    public community(){
+        this.houses = new ArrayList<house>();
+        house hs = new house();
+        this.Name = "BB";
+        hs.setAddress("101 MA Avenue");
+        hs.setArea((float) 111.1);
+        hs.setPostalCode("12345");
+        hs.setCommunity(this);
+        
+        houses.add(hs);
+    }
+    public ArrayList<house> getHouses() {
+        return houses;
+    }
+
+    public void setHouses(ArrayList<house> houses) {
+        this.houses = houses;
+    }
+
+    
     public city getCity() {
         return city;
     }
@@ -47,6 +70,14 @@ public class community {
     }
 
     
-    
-    
+    public house addNewHouse(){
+        house newHouse = new house();
+        houses.add(newHouse);
+        return newHouse;
+    }
+    @Override
+    public String toString(){
+        String name = Name;
+        return name;
+    }
 }

@@ -14,7 +14,9 @@ import model.adminset;
 import model.patient;
 import model.patientset;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -22,6 +24,7 @@ import model.ActionHistory;
 import model.appointment;
 import model.appointmentlist;
 import model.city;
+import model.citylist;
 import model.community;
 import model.communityadminset;
 import model.doctor;
@@ -31,6 +34,7 @@ import model.encounterhistory;
 import model.hospital;
 import model.hospitaladminset;
 import model.hospitallist;
+import model.house;
 import model.person;
 import model.personset;
 
@@ -53,12 +57,15 @@ public class PatientLoginPanel extends javax.swing.JPanel {
     patientset patientset;
     personset personset;
     ActionHistory actionhistory;
+    community community;
+    city city;
+    citylist citylist;
     
     public int index;
     public PatientLoginPanel(adminset systemadminset, communityadminset communityadminset, 
             hospitaladminset hospitaladminset, appointmentlist appointmentlist, doctorset doctorset,
             encounterhistory encounterhistory, hospitallist hospitallist, patientset patientset, 
-            personset personset, ActionHistory actionhistory) {
+            personset personset, ActionHistory actionhistory, community community, city city, citylist citylist) {
         initComponents();
         this.systemadminset = systemadminset;
         this.communityadminset = communityadminset;
@@ -70,6 +77,9 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         this.patientset = patientset;
         this.personset = personset;
         this.actionhistory = actionhistory;
+        this.community = community;
+        this.city = city;
+        this.citylist = citylist;
         
         PatientProfileJPanel.setVisible(false);
         PatientWorkAreaJPanel.setVisible(false);
@@ -1660,9 +1670,12 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         patient ei = patientset.getHistory().get(index);
         person ps = new person();
         city ct = new city();
+        house hs = new house();
+        hs.setAddress(HomeAdd);
+            
         community cm = new community();
-        ps.setUsername(Username);
-        ps.setPassword(Password);
+        ei.setUsername(Username);
+        ei.setPassword(Password);
         ps.setPhoneNum(PhoneNum);
         ps.setEmailAdd(EmailAdd);
         ps.setGender(Gender);
@@ -1673,7 +1686,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         ei.setCity(ct);
         ei.setCommunity(cm);
         ei.setPostalCode(PostalCode);
-        ei.setHomeAdd(HomeAdd);
+        ei.setHomeAdd(hs);
         ei.setPerson(ps);
         ei.setInsurance(Insurance);
         JOptionPane.showMessageDialog(this, "Patient Information Updated.");
@@ -1691,7 +1704,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         int flag = 0;
         int i = 0;
         for (patient ei : patientset.getHistory()){
-            if (ei.getPerson().getUsername().equals(username) & (ei.getPerson().getPassword().equals(password))){
+            if (ei.getUsername().equals(username) & (ei.getPassword().equals(password))){
                 flag = 1;
                 index = i;
                 PatientLoginJPanel.setVisible(false);
@@ -1821,15 +1834,18 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         person ps = new person();
         city ct = new city();
         community cm = new community();
-        ps.setUsername(Username);
-        ps.setPassword(Password);
+        house hs = new house();
+        hs.setAddress(HomeAdd);
+            
+        cp.setUsername(Username);
+        cp.setPassword(Password);
         ps.setPhoneNum(PhoneNum);
         ps.setEmailAdd(EmailAdd);
         ps.setGender(Gender);
         ps.setName(Name);
         ps.setDOB((Date)txtDOB.getValue());
         cp.setInsurance(Insurance);
-        cp.setHomeAdd(HomeAdd);
+        cp.setHomeAdd(hs);
         ct.setName(City);
         cm.setName(Community);
         cp.setCity(ct);
@@ -1880,10 +1896,10 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         BookAppointmentJPanel.setVisible(false);
         patient cp = patientset.getHistory().get(index);
         
-        txtShowUsername.setText(cp.getPerson().getUsername());
+        txtShowUsername.setText(cp.getUsername());
         txtShowUsername.setEditable(false);
         
-        txtShowPassword.setText(cp.getPerson().getPassword());
+        txtShowPassword.setText(cp.getPassword());
         txtShowPassword.setEditable(false);
         
         txtName.setText(cp.getPerson().getName());
@@ -1901,7 +1917,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         cmbGender.setSelectedItem(cp.getPerson().getGender());
         cmbGender.setEnabled(false);
         
-        txtHomeAdd.setText(cp.getHomeAdd());
+        txtHomeAdd.setText(cp.getHomeAdd().getAddress());
         txtHomeAdd.setEditable(false);
         
         txtCity.setText(cp.getCity().getName());

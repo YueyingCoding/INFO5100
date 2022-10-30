@@ -18,14 +18,15 @@ public class personset {
     public personset(){
         this.set = new ArrayList<person>();
         
+        house hs = new house();
         Date dl = new Date(2009,9,20);
         ps.setDOB(dl);
-        ps.setUsername("ABCDEF");
-        ps.setPassword("123456");
         ps.setPhoneNum("2143658709");
         ps.setEmailAdd("sjje9wi@slwk.com");
         ps.setGender("Male");
         ps.setName("ABCDEF");
+        hs.setAddress("100 Harvard Street");
+        ps.setHouse(hs);
         
         set.add(ps);
     }

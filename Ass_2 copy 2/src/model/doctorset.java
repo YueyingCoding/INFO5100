@@ -20,8 +20,8 @@ public class doctorset {
         Date dl = new Date(20020902);
         person ps = new person();
         hospital hp = new hospital();
-        ps.setUsername("ABCD");
-        ps.setPassword("1234");
+        a.setUsername("ABCD");
+        a.setPassword("1234");
         ps.setPhoneNum("9876543210");
         ps.setEmailAdd("swiau@sme.com");
         ps.setGender("Male");

@@ -10,6 +10,9 @@ import model.ActionHistory;
 import model.adminset;
 import model.appointment;
 import model.appointmentlist;
+import model.city;
+import model.citylist;
+import model.community;
 import model.communityadminset;
 import model.doctor;
 import model.doctorset;
@@ -38,6 +41,9 @@ public class MainJFrame extends javax.swing.JFrame {
     hospitallist hospitallist;
     personset personset;
     ActionHistory actionhistory;
+    community community;
+    city city;
+    citylist citylist;
     
     public MainJFrame() {
         initComponents();
@@ -52,6 +58,9 @@ public class MainJFrame extends javax.swing.JFrame {
         doctorset = new doctorset();
         patientset = new patientset();
         personset = new personset();
+        community = new community();
+        city = new city();
+        citylist = new citylist();
     }
 
     /**
@@ -181,7 +190,7 @@ public class MainJFrame extends javax.swing.JFrame {
 //        try to parse the appointmentlist object to the doctor panel.
         DoctorLoginPanel doctorloginPanel = new DoctorLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
-        patientset, personset, actionhistory);
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(doctorloginPanel);
         doctorloginPanel.setVisible(true);
 //        DoctorLoginPanel doctorloginPanel = new DoctorLoginPanel(appointmentlist, doctorset, encounterhistory);
@@ -194,7 +203,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         CommunityAdminLoginPanel adminloginPanel = new CommunityAdminLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
-        patientset, personset, actionhistory);
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(adminloginPanel);
         adminloginPanel.setVisible(true);
 //        CommunityAdminLoginPanel adminloginPanel = new CommunityAdminLoginPanel(communityadminset);
@@ -206,7 +215,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         PatientLoginPanel patientloginPanel = new PatientLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
-        patientset, personset, actionhistory);
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(patientloginPanel);
         patientloginPanel.setVisible(true);
 //        PatientLoginPanel patientloginPanel = new PatientLoginPanel(appointmentlist, doctorset, encounterhistory);
@@ -218,7 +227,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         SystemAdminLoginPanel systemadminloginPanel = new SystemAdminLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
-        patientset, personset, actionhistory);
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(systemadminloginPanel);
         systemadminloginPanel.setVisible(true);
     }//GEN-LAST:event_btnSystemAdminActionPerformed
@@ -227,7 +236,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         HospitalAdminLoginPanel hospitaladminloginPanel = new HospitalAdminLoginPanel(systemadminset, 
                 communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
-        patientset, personset, actionhistory);
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(hospitaladminloginPanel);
         hospitaladminloginPanel.setVisible(true);
 //        HospitalAdminLoginPanel hospitaladminloginPanel = new HospitalAdminLoginPanel(hospitaladminset);

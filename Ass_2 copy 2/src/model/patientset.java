@@ -22,9 +22,11 @@ public class patientset {
         person ps = new person();
         city ct = new city();
         community cm = new community();
+        house hs = new house();
+        hs.setAddress("001 Harvard Street");
         ps.setDOB(dl);
-        ps.setUsername("ABCDE");
-        ps.setPassword("12345");
+        ei.setUsername("ABCDE");
+        ei.setPassword("12345");
         ps.setPhoneNum("2143658709");
         ps.setEmailAdd("sjje9wi@slwk.com");
         ps.setGender("Male");
@@ -33,7 +35,7 @@ public class patientset {
         ei.setCity(ct);
         cm.setName("AB");
         ei.setCommunity(cm);
-        ei.setHomeAdd("pond str");
+        ei.setHomeAdd(hs);
         ei.setPostalCode("01234");
         ei.setInsurance(Boolean.TRUE);
         ei.setPerson(ps);

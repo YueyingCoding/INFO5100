@@ -18,8 +18,8 @@ public class adminset {
         this.set = new ArrayList<admin>();
         person ps = new person();
         Date dl = new Date(11,11,2000);
-        ps.setUsername("ABC");
-        ps.setPassword("123");
+        ei.setUsername("ABC");
+        ei.setPassword("123");
         ps.setPhoneNum("123456789");
         ps.setEmailAdd("sjwkeu@slk.com");
         ei.setEmployeeID(1);

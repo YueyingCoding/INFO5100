@@ -11,12 +11,40 @@ import java.util.Date;
  * @author chengzhishi
  */
 public class patient {
-    private String HomeAdd;
+    private house HomeAdd;
     private city City;
     private community Community;
     private String PostalCode;
     private person person;
     private Boolean Insurance;
+    private String Username;
+    private String Password;
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String Username) {
+        this.Username = Username;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    public house getHomeAdd() {
+        return HomeAdd;
+    }
+
+    public void setHomeAdd(house HomeAdd) {
+        this.HomeAdd = HomeAdd;
+    }
+    
+    
 
     public person getPerson() {
         return person;
@@ -92,13 +120,6 @@ public class patient {
 //        this.EmailAdd = EmailAdd;
 //    }
 
-    public String getHomeAdd() {
-        return HomeAdd;
-    }
-
-    public void setHomeAdd(String HomeAdd) {
-        this.HomeAdd = HomeAdd;
-    }
 
     public city getCity() {
         return City;

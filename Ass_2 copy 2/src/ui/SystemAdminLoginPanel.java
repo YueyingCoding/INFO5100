@@ -5,6 +5,7 @@
 package ui;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +17,7 @@ import model.adminset;
 import model.appointment;
 import model.appointmentlist;
 import model.city;
+import model.citylist;
 import model.community;
 import model.communityadminset;
 import model.doctor;
@@ -25,6 +27,7 @@ import model.encounterhistory;
 import model.hospital;
 import model.hospitaladminset;
 import model.hospitallist;
+import model.house;
 import model.patient;
 import model.patientset;
 import model.person;
@@ -50,11 +53,14 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
     personset personset;
     ActionHistory actionhistory;
     admin admin;
+    community community;
+    city city;
+    citylist citylist;
     public int index;
     public SystemAdminLoginPanel(adminset systemadminset, communityadminset communityadminset, 
             hospitaladminset hospitaladminset, appointmentlist appointmentlist, doctorset doctorset,
             encounterhistory encounterhistory, hospitallist hospitallist, patientset patientset, 
-            personset personset, ActionHistory actionhistory) {
+            personset personset, ActionHistory actionhistory, community community, city city, citylist citylist) {
         initComponents();
         this.systemadminset = systemadminset;
         this.communityadminset = communityadminset;
@@ -66,6 +72,9 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         this.patientset = patientset;
         this.personset = personset;
         this.actionhistory = actionhistory;
+        this.community = community;
+        this.city = city;
+        this.citylist = citylist;
         SystemAdminCreateJPanel.setVisible(false);
         SystemAdminWorkAreaJPanel.setVisible(false);
         SystemAdminProfileJPanel.setVisible(false);
@@ -782,10 +791,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblEncounters);
-        if (tblEncounters.getColumnModel().getColumnCount() > 0) {
-            tblEncounters.getColumnModel().getColumn(3).setResizable(false);
-            tblEncounters.getColumnModel().getColumn(3).setHeaderValue("Level");
-        }
 
         btnDeleteEncounter.setText("Delete");
         btnDeleteEncounter.addActionListener(new java.awt.event.ActionListener() {
@@ -813,9 +818,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         SystemAdminWorkAreaJPanelLayout.setHorizontalGroup(
             SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SystemAdminWorkAreaJPanelLayout.createSequentialGroup()
-                .addComponent(lblManageEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-            .addGroup(SystemAdminWorkAreaJPanelLayout.createSequentialGroup()
                 .addGroup(SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(SystemAdminWorkAreaJPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -842,11 +844,11 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
                             .addGap(18, 18, 18)
                             .addComponent(btnProfile))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(SystemAdminWorkAreaJPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lblCreateNew1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(SystemAdminWorkAreaJPanelLayout.createSequentialGroup()
+                .addGroup(SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblManageEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreateNew1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         SystemAdminWorkAreaJPanelLayout.setVerticalGroup(
             SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -855,7 +857,9 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
                 .addGroup(SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProfile)
                     .addComponent(btnShowActionHistory))
-                .addGap(78, 78, 78)
+                .addGap(35, 35, 35)
+                .addComponent(lblCreateNew1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCreateNew)
@@ -870,11 +874,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
                     .addComponent(btnAddEncounter)
                     .addComponent(btnViewEncounter))
                 .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(SystemAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(SystemAdminWorkAreaJPanelLayout.createSequentialGroup()
-                    .addGap(89, 89, 89)
-                    .addComponent(lblCreateNew1)
-                    .addContainerGap(474, Short.MAX_VALUE)))
         );
 
         jLayeredPane1.add(SystemAdminWorkAreaJPanel, "card4");
@@ -2118,10 +2117,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane3.setViewportView(tblHospitalAdmins);
-        if (tblHospitalAdmins.getColumnModel().getColumnCount() > 0) {
-            tblHospitalAdmins.getColumnModel().getColumn(3).setResizable(false);
-            tblHospitalAdmins.getColumnModel().getColumn(3).setHeaderValue("Level");
-        }
 
         btnDeleteEncounter2.setText("Delete");
         btnDeleteEncounter2.addActionListener(new java.awt.event.ActionListener() {
@@ -2391,10 +2386,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane4.setViewportView(tblDoctors);
-        if (tblDoctors.getColumnModel().getColumnCount() > 0) {
-            tblDoctors.getColumnModel().getColumn(3).setResizable(false);
-            tblDoctors.getColumnModel().getColumn(3).setHeaderValue("Level");
-        }
 
         btnDeleteEncounter3.setText("Delete");
         btnDeleteEncounter3.addActionListener(new java.awt.event.ActionListener() {
@@ -2664,10 +2655,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane5.setViewportView(tblPatients);
-        if (tblPatients.getColumnModel().getColumnCount() > 0) {
-            tblPatients.getColumnModel().getColumn(3).setResizable(false);
-            tblPatients.getColumnModel().getColumn(3).setHeaderValue("Level");
-        }
 
         btnDeleteEncounter4.setText("Delete");
         btnDeleteEncounter4.addActionListener(new java.awt.event.ActionListener() {
@@ -3349,7 +3336,7 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         int flag = 0;
         int i = 0;
         for (admin ei : systemadminset.getHistory()){
-            if (ei.getPerson().getUsername().equals(username) & (ei.getPerson().getPassword().equals(password))){
+            if (ei.getUsername().equals(username) & (ei.getPassword().equals(password))){
                 flag = 1;
                 index = i;
                 SystemAdminCreateJPanel.setVisible(false);
@@ -3493,8 +3480,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         else if (saveflag == 1){
         admin ei = systemadminset.addNewAdmin();
         person ps = new person();
-        ps.setUsername(Username);
-        ps.setPassword(Password);
+        ei.setUsername(Username);
+        ei.setPassword(Password);
         ps.setPhoneNum(PhoneNum);
         ps.setEmailAdd(EmailAdd);
         ei.setEmployeeID(EmployeeID);
@@ -3641,8 +3628,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         else if (saveflag == 1){
             admin sa = systemadminset.getHistory().get(index);
             person ps = new person();
-            ps.setUsername(Username);
-            ps.setPassword(Password);
+            sa.setUsername(Username);
+            sa.setPassword(Password);
             ps.setPhoneNum(PhoneNum);
             ps.setEmailAdd(EmailAdd);
             sa.setEmployeeID(EmployeeID);
@@ -3688,10 +3675,10 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         
         admin sa = systemadminset.getHistory().get(index);
 //        
-        txtShowUsername.setText(sa.getPerson().getUsername());
+        txtShowUsername.setText(sa.getUsername());
         txtShowUsername.setEditable(false);
 //        
-        txtShowPassword.setText(sa.getPerson().getPassword());
+        txtShowPassword.setText(sa.getPassword());
         txtShowPassword.setEditable(false);
 //        
         txtName1.setText(sa.getPerson().getName());
@@ -3946,8 +3933,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         else if (saveflag == 1){
         admin ei = communityadminset.addNewCommunityAdmin();
         person ps = new person();
-        ps.setUsername(Username);
-        ps.setPassword(Password);
+        ei.setUsername(Username);
+        ei.setPassword(Password);
         ps.setPhoneNum(PhoneNum);
         ps.setEmailAdd(EmailAdd);
         ei.setEmployeeID(EmployeeID);
@@ -4076,8 +4063,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         else if (saveflag == 1){
         admin ei = hospitaladminset.addNewAdmin();
         person ps = new person();
-        ps.setUsername(Username);
-        ps.setPassword(Password);
+        ei.setUsername(Username);
+        ei.setPassword(Password);
         ps.setPhoneNum(PhoneNum);
         ps.setEmailAdd(EmailAdd);
         ei.setEmployeeID(EmployeeID);
@@ -4195,8 +4182,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             person ps = new person();
             hospital hp = new hospital();
             hp.setHospitalName(Hospital);
-            ps.setUsername(Username);
-            ps.setPassword(Password);
+            ei.setUsername(Username);
+            ei.setPassword(Password);
             ps.setPhoneNum(PhoneNum);
             ps.setEmailAdd(EmailAdd);
             ei.setHospital(hp);
@@ -4324,16 +4311,18 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             patient cp = patientset.addNewPatient();
             person ps = new person();
             city ct = new city();
+            house hs = new house();
+            hs.setAddress(HomeAdd);
             community cm = new community();
-            ps.setUsername(Username);
-            ps.setPassword(Password);
+            cp.setUsername(Username);
+            cp.setPassword(Password);
             ps.setPhoneNum(PhoneNum);
             ps.setEmailAdd(EmailAdd);
             ps.setGender(Gender);
             ps.setName(Name);
             ps.setDOB((Date)txtDOB.getValue());
             cp.setInsurance(Insurance);
-            cp.setHomeAdd(HomeAdd);
+            cp.setHomeAdd(hs);
             ct.setName(City);
             cm.setName(Community);
             cp.setCity(ct);
@@ -4682,8 +4671,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) tblCommunityAdmins.getModel();
             admin ei = (admin) model.getValueAt(selectedRowIndex, 0);
             person ps = new person();
-            ps.setUsername(Username);
-            ps.setPassword(Password);
+            ei.setUsername(Username);
+            ei.setPassword(Password);
             ps.setPhoneNum(PhoneNum);
             ps.setEmailAdd(EmailAdd);
             ei.setEmployeeID(EmployeeID);
@@ -4781,8 +4770,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         admin selectedHospitalAdmin = (admin) model.getValueAt(selectedRowIndex, 0); 
         
         
-        txtShowUsername4.setText(selectedHospitalAdmin.getPerson().getUsername());
-        txtShowPassword4.setText(selectedHospitalAdmin.getPerson().getPassword());
+        txtShowUsername4.setText(selectedHospitalAdmin.getUsername());
+        txtShowPassword4.setText(selectedHospitalAdmin.getPassword());
         txtName7.setText(selectedHospitalAdmin.getPerson().getName());
         txtDOB7.setValue(selectedHospitalAdmin.getPerson().getDOB());
         txtPhoneNum7.setText(selectedHospitalAdmin.getPerson().getPhoneNum());
@@ -4997,8 +4986,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) tblHospitalAdmins.getModel();
             admin ei = (admin) model.getValueAt(selectedRowIndex, 0);
             person ps = new person();
-            ps.setUsername(Username);
-            ps.setPassword(Password);
+            ei.setUsername(Username);
+            ei.setPassword(Password);
             ps.setPhoneNum(PhoneNum);
             ps.setEmailAdd(EmailAdd);
             ei.setEmployeeID(EmployeeID);
@@ -5096,8 +5085,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         doctor selectedDoctor = (doctor) model.getValueAt(selectedRowIndex, 0); 
         
         
-        txtShowUsername5.setText(selectedDoctor.getPerson().getUsername());
-        txtShowPassword5.setText(selectedDoctor.getPerson().getPassword());
+        txtShowUsername5.setText(selectedDoctor.getUsername());
+        txtShowPassword5.setText(selectedDoctor.getPassword());
         txtName8.setText(selectedDoctor.getPerson().getName());
         txtDOB8.setValue(selectedDoctor.getPerson().getDOB());
         txtPhoneNum8.setText(selectedDoctor.getPerson().getPhoneNum());
@@ -5234,8 +5223,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             doctor ei = (doctor) model.getValueAt(selectedRowIndex, 0);
             person ps = new person();
             hospital hp = new hospital();
-            ps.setUsername(Username);
-            ps.setPassword(Password);
+            ei.setUsername(Username);
+            ei.setPassword(Password);
             ps.setPhoneNum(PhoneNum);
             ps.setEmailAdd(EmailAdd);
             ei.setEmployeeID(EmployeeID);
@@ -5334,14 +5323,14 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         patient selectedPatient = (patient) model.getValueAt(selectedRowIndex, 0); 
         
         
-        txtShowUsername6.setText(selectedPatient.getPerson().getUsername());
-        txtShowPassword6.setText(selectedPatient.getPerson().getPassword());
+        txtShowUsername6.setText(selectedPatient.getUsername());
+        txtShowPassword6.setText(selectedPatient.getPassword());
         txtName9.setText(selectedPatient.getPerson().getName());
         txtDOB9.setValue(selectedPatient.getPerson().getDOB());
         txtPhoneNum9.setText(selectedPatient.getPerson().getPhoneNum());
         txtEmailAdd9.setText(selectedPatient.getPerson().getEmailAdd());
         cmbGender9.setSelectedItem(selectedPatient.getPerson().getGender());
-        txtHomeAdd5.setText(selectedPatient.getHomeAdd());
+        txtHomeAdd5.setText(selectedPatient.getHomeAdd().getAddress());
         txtCity5.setText(selectedPatient.getCity().getName());
         txtCommunity5.setText(selectedPatient.getCommunity().getName());
         txtPostalCode5.setText(selectedPatient.getPostalCode());
@@ -5616,17 +5605,20 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             patient ei = (patient) model.getValueAt(selectedRowIndex, 0);
             person ps = new person();
             city ct = new city();
+            house hs = new house();
             community cm = new community();
             cm.setName(Community);
             ct.setName(City);
-            ps.setUsername(Username);
-            ps.setPassword(Password);
+            hs.setAddress(HomeAdd);
+            
+            ei.setUsername(Username);
+            ei.setPassword(Password);
             ps.setPhoneNum(PhoneNum);
             ps.setEmailAdd(EmailAdd);
             ps.setGender(Gender);
             ps.setName(Name);
             ps.setDOB((Date)txtDOB.getValue());
-            ei.setHomeAdd(HomeAdd);
+            ei.setHomeAdd(hs);
             ei.setCity(ct);
             ei.setCommunity(cm);
             ei.setInsurance(Insurance);
@@ -5799,6 +5791,11 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             selectedEncounter.setVitalSigns(vitalsigns);
             
             populateEncountersTable();
+            
+            Action ah  = actionhistory.addNewAction();
+            ah.setPerson("System Administrator");
+            ah.setName(systemadminset.getHistory().get(index).getPerson().getName());
+            ah.setModification("Update Encounter");
             JOptionPane.showMessageDialog(this, "Encounter Detail Updated.");
         }
 
@@ -6042,8 +6039,8 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         admin selectedCommunityAdmin = (admin) model.getValueAt(selectedRowIndex, 0); 
         
         
-        txtShowUsername3.setText(selectedCommunityAdmin.getPerson().getUsername());
-        txtShowPassword3.setText(selectedCommunityAdmin.getPerson().getPassword());
+        txtShowUsername3.setText(selectedCommunityAdmin.getUsername());
+        txtShowPassword3.setText(selectedCommunityAdmin.getPassword());
         txtName6.setText(selectedCommunityAdmin.getPerson().getName());
         txtDOB6.setValue(selectedCommunityAdmin.getPerson().getDOB());
         txtPhoneNum6.setText(selectedCommunityAdmin.getPerson().getPhoneNum());

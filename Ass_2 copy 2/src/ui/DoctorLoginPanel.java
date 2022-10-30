@@ -21,6 +21,9 @@ import model.admin;
 import model.adminset;
 import model.appointment;
 import model.appointmentlist;
+import model.city;
+import model.citylist;
+import model.community;
 import model.communityadminset;
 import model.doctor;
 import model.doctorset;
@@ -53,13 +56,15 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
     patientset patientset;
     personset personset;
     ActionHistory actionhistory;
-    
+    community community;
+    city city;
+    citylist citylist;
     public int index;
     
     public DoctorLoginPanel(adminset systemadminset, communityadminset communityadminset, 
             hospitaladminset hospitaladminset, appointmentlist appointmentlist, doctorset doctorset,
             encounterhistory encounterhistory, hospitallist hospitallist, patientset patientset, 
-            personset personset, ActionHistory actionhistory) {
+            personset personset, ActionHistory actionhistory, community community, city city, citylist citylist) {
         initComponents();
         this.systemadminset = systemadminset;
         this.communityadminset = communityadminset;
@@ -71,6 +76,9 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
         this.patientset = patientset;
         this.personset = personset;
         this.actionhistory = actionhistory;
+        this.community = community;
+        this.city = city;
+        this.citylist = citylist;
         DoctorProfileJPanel.setVisible(false);
         DoctorWorkAreaJPanel.setVisible(false);
         DoctorCreateJPanel.setVisible(false);
@@ -1320,8 +1328,8 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
         person ps = new person();
         hospital hp = new hospital();
         hp.setHospitalName(Hospital);
-        ps.setUsername(Username);
-        ps.setPassword(Password);
+        ei.setUsername(Username);
+        ei.setPassword(Password);
         ps.setPhoneNum(PhoneNum);
         ps.setEmailAdd(EmailAdd);
         ei.setHospital(hp);
@@ -1371,7 +1379,7 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
         int flag = 0;
         int i = 0;
         for (doctor ei : doctorset.getHistory()){
-            if (ei.getPerson().getUsername().equals(username) & (ei.getPerson().getPassword().equals(password))){
+            if (ei.getUsername().equals(username) & (ei.getPassword().equals(password))){
                 flag = 1;
                 index = i;
                 DoctorEncounterHistoryJPanel.setVisible(false);
@@ -1478,8 +1486,8 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
         doctor ei = doctorset.getHistory().get(index);
         person ps = new person();
         hospital hp = new hospital();
-        ps.setUsername(Username);
-        ps.setPassword(Password);
+        ei.setUsername(Username);
+        ei.setPassword(Password);
         ps.setPhoneNum(PhoneNum);
         ps.setEmailAdd(EmailAdd);
         ei.setEmployeeID(EmployeeID);
@@ -1519,10 +1527,10 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
         DoctorProfileJPanel.setVisible(true);
         doctor dr = doctorset.getHistory().get(index);
 //        
-        txtShowUsername.setText(dr.getPerson().getUsername());
+        txtShowUsername.setText(dr.getUsername());
         txtShowUsername.setEditable(false);
 //        
-        txtShowPassword.setText(dr.getPerson().getPassword());
+        txtShowPassword.setText(dr.getPassword());
         txtShowPassword.setEditable(false);
 //        
         txtName1.setText(dr.getPerson().getName());

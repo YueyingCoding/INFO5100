@@ -47,31 +47,7 @@ public class encounter {
     public void setPatientName(String PatientName) {
         this.PatientName = PatientName;
     }
-
-//    public int getBloodPressure() {
-//        return BloodPressure;
-//    }
-//
-//    public void setBloodPressure(int BloodPressure) {
-//        this.BloodPressure = BloodPressure;
-//    }
-//
-//    public int getHeartRate() {
-//        return HeartRate;
-//    }
-//
-//    public void setHeartRate(int HeartRate) {
-//        this.HeartRate = HeartRate;
-//    }
-//
-//    public float getTemperature() {
-//        return Temperature;
-//    }
-//
-//    public void setTemperature(float Temperature) {
-//        this.Temperature = Temperature;
-//    }
-
+    
     public Date getEncounterDate() {
         return EncounterDate;
     }

@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -11,28 +13,19 @@ import java.util.Date;
  * @author chengzhishi
  */
 public class person {
-    private String Username;
-    private String Password;
     private String Name;
     private String Gender;
     private Date DOB;
     private String PhoneNum;
     private String EmailAdd;
+    private house House;
 
-    public String getUsername() {
-        return Username;
+    public house getHouse() {
+        return House;
     }
 
-    public void setUsername(String Username) {
-        this.Username = Username;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setHouse(house House) {
+        this.House = House;
     }
 
     public String getName() {
@@ -75,6 +68,11 @@ public class person {
         this.EmailAdd = EmailAdd;
     }
     
-    
+    @Override
+    public String toString(){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd");  
+        String strDate = dateFormat.format(DOB);
+        return strDate;
+    }
     
 }

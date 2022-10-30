@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author chengzhishi
@@ -45,6 +48,10 @@ public class house {
     public void setArea(float Area) {
         this.Area = Area;
     }
-    
+    @Override
+    public String toString(){
+        String HomeAdd = Address;
+        return HomeAdd;
+    }
     
 }

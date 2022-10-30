@@ -18,8 +18,8 @@ public class hospitaladminset {
         this.set = new ArrayList<admin>();
         person ps = new person();
         Date dl = new Date(11,11,2000);
-        ps.setUsername("ABc");
-        ps.setPassword("123");
+        ei.setUsername("ABc");
+        ei.setPassword("123");
         ps.setPhoneNum("123456789");
         ps.setEmailAdd("sjwkeu@slk.com");
         ei.setEmployeeID(1);

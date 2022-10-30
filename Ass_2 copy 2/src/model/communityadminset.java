@@ -21,8 +21,8 @@ public class communityadminset {
         
         Date dt = new Date(20020202);
         ps.setName("abc");
-        ps.setUsername("abc");
-        ps.setPassword("123");
+        a.setUsername("abc");
+        a.setPassword("123");
         ps.setPhoneNum("1234567890");
         ps.setEmailAdd("abcd@gfm.com");
         ps.setGender("Female");
