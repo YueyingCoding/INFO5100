@@ -527,6 +527,11 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
         });
 
         btnAddResident.setText("Add");
+        btnAddResident.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddResidentActionPerformed(evt);
+            }
+        });
 
         btnViewResident.setText("View");
         btnViewResident.addActionListener(new java.awt.event.ActionListener() {
@@ -2253,6 +2258,10 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
         AddCommunityJPanel.setVisible(false);
         AddCityJPanel.setVisible(false);
     }//GEN-LAST:event_btnBack4ActionPerformed
+
+    private void btnAddResidentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddResidentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddResidentActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

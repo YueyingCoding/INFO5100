@@ -3,23 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/encounterhistory.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/patientset.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/ui/HospitalAdminLoginPanel.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/ui/PatientLoginPanel.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/doctor.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/encounter.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/hospitallist.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/person.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/appointment.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/hospital.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/VitalSigns.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/ui/DoctorLoginPanel.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/appointmentlist.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/doctorset.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/ui/SystemAdminLoginPanel.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/ui/MainJFrame.java</file>
-            <file>file:/Users/chengzhishi/NetBeansProjects/Ass_2%20copy%202/src/model/patient.java</file>
+            <file>file:/Users/chengzhishi/NetBeansProjects/NewFolder/INFO5100/Ass_2/src/ui/CommunityAdminLoginPanel.java</file>
         </group>
     </open-files>
 </project-private>
