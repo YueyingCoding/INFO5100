@@ -814,11 +814,11 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
                     .addComponent(lblLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addGroup(CommunityAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
+                .addGroup(CommunityAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CommunityAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdate)
-                        .addComponent(btnEdit)))
+                        .addComponent(btnEdit))
+                    .addComponent(btnBack))
                 .addGap(36, 36, 36))
         );
 
@@ -2125,6 +2125,16 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Invalid Home Address.");
                 saveflag = 0;
             }
+            for (city ct : citylist.getHistory()){
+                for (community cm : ct.getCommunities()){
+                    for (house hs : cm.getHouses()){
+                        if (hs.getAddress().equals(HomeAdd)){
+                            JOptionPane.showMessageDialog(this, "House Already Exists.");
+                            saveflag = 0;
+                        }
+                    }
+                }
+            }
             if (Area < 0 || areaflag == 1 || txtArea.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Invalid Area.");
                 saveflag = 0;
@@ -2252,6 +2262,16 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
             if (Area < 0 || areaflag == 1 || txtCommunityArea.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Invalid Area.");
                 saveflag = 0;
+            }
+            for (city ct : citylist.getHistory()){
+                for (community cm : ct.getCommunities()){
+                    
+                    if (cm.getName().equals(Name)){
+                        JOptionPane.showMessageDialog(this, "Community Already Exists.");
+                        saveflag = 0;
+                    }
+                    
+                }
             }
             if (Name.equals("") || nameflag == 1){
                 JOptionPane.showMessageDialog(this, "Invalid Community Name.");
@@ -2395,6 +2415,12 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Invalid Population.");
             saveflag = 0;
         }
+        for (city ct : citylist.getHistory()){   
+            if (ct.getName().equals(Name)){
+                JOptionPane.showMessageDialog(this, "City Already Exists.");
+                saveflag = 0;
+            }
+            }
         if (State.equals("") || stateflag == 1){
             JOptionPane.showMessageDialog(this, "Invalid City.");
             saveflag = 0;

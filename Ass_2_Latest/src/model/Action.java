@@ -12,7 +12,36 @@ public class Action {
     private String Person;
     private String Name;
     private String Modification;
+    private admin Admin;
+    private doctor Doctor;
+    private patient Patient;
 
+    public admin getAdmin() {
+        return Admin;
+    }
+
+    public void setAdmin(admin Admin) {
+        this.Admin = Admin;
+    }
+
+    public doctor getDoctor() {
+        return Doctor;
+    }
+
+    public void setDoctor(doctor Doctor) {
+        this.Doctor = Doctor;
+    }
+
+    public patient getPatient() {
+        return Patient;
+    }
+
+    public void setPatient(patient Patient) {
+        this.Patient = Patient;
+    }
+    
+
+    
     public String getPerson() {
         return Person;
     }
