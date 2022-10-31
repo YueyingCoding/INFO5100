@@ -109,8 +109,6 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         pwdPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        lblNewUser = new javax.swing.JLabel();
-        btnCreateAccount = new javax.swing.JButton();
         DoctorCreateJPanel = new javax.swing.JPanel();
         lblCreateAccount = new javax.swing.JLabel();
         lblCreatePassword = new javax.swing.JLabel();
@@ -255,16 +253,6 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
             }
         });
 
-        lblNewUser.setFont(new java.awt.Font("Klee", 1, 18)); // NOI18N
-        lblNewUser.setText("New User?");
-
-        btnCreateAccount.setText("Create Account");
-        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAccountActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout DoctorLoginJPanelLayout = new javax.swing.GroupLayout(DoctorLoginJPanel);
         DoctorLoginJPanel.setLayout(DoctorLoginJPanelLayout);
         DoctorLoginJPanelLayout.setHorizontalGroup(
@@ -277,14 +265,11 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
                     .addGroup(DoctorLoginJPanelLayout.createSequentialGroup()
                         .addGroup(DoctorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsername)
-                            .addComponent(lblPassword)
-                            .addComponent(lblNewUser))
-                        .addGap(18, 18, 18)
-                        .addGroup(DoctorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DoctorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUsername)
-                                .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnCreateAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblPassword))
+                        .addGap(19, 19, 19)
+                        .addGroup(DoctorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername)
+                            .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(323, Short.MAX_VALUE))
         );
         DoctorLoginJPanelLayout.setVerticalGroup(
@@ -302,11 +287,7 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
                     .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btnLogin)
-                .addGap(34, 34, 34)
-                .addGroup(DoctorLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNewUser)
-                    .addComponent(btnCreateAccount))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(DoctorLoginJPanel, "card2");
@@ -742,11 +723,11 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
                     .addComponent(lblMajor1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMajor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(120, 120, 120)
-                .addGroup(DoctorProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
+                .addGroup(DoctorProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DoctorProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdate)
-                        .addComponent(btnEdit)))
+                        .addComponent(btnEdit))
+                    .addComponent(btnBack))
                 .addGap(72, 72, 72))
         );
 
@@ -1049,11 +1030,11 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
                     .addComponent(lblNotes)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(66, 66, 66)
-                .addGroup(ViewEncounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack2)
+                .addGroup(ViewEncounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ViewEncounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdate1)
-                        .addComponent(btnEdit1)))
+                        .addComponent(btnEdit1))
+                    .addComponent(btnBack2))
                 .addGap(72, 72, 72))
         );
 
@@ -1238,18 +1219,6 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
     private void pwdPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pwdPasswordActionPerformed
-
-    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
-        DoctorEncounterHistoryJPanel.setVisible(false);
-        DoctorLoginJPanel.setVisible(false);
-        DoctorWorkAreaJPanel.setVisible(false);
-        DoctorProfileJPanel.setVisible(false);
-        ViewEncounterJPanel.setVisible(false);
-        AddEncounterJPanel.setVisible(false);
-        DoctorCreateJPanel.setVisible(true);
-        
-    }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
@@ -2087,7 +2056,6 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack3;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEdit1;
@@ -2140,7 +2108,6 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblMajor1;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName1;
-    private javax.swing.JLabel lblNewUser;
     private javax.swing.JLabel lblNotes;
     private javax.swing.JLabel lblNotes1;
     private javax.swing.JLabel lblPassword;

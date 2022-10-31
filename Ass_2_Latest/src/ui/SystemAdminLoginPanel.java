@@ -4,7 +4,10 @@
  */
 package ui;
 
+import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -116,8 +119,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         pwdPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        lblNewUser = new javax.swing.JLabel();
-        btnCreateAccount = new javax.swing.JButton();
         SystemAdminCreateJPanel = new javax.swing.JPanel();
         lblCreateAccount = new javax.swing.JLabel();
         lblCreatePassword = new javax.swing.JLabel();
@@ -494,16 +495,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             }
         });
 
-        lblNewUser.setFont(new java.awt.Font("Klee", 1, 18)); // NOI18N
-        lblNewUser.setText("New User?");
-
-        btnCreateAccount.setText("Create Account");
-        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAccountActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout SystemAdminLoginJPanelLayout = new javax.swing.GroupLayout(SystemAdminLoginJPanel);
         SystemAdminLoginJPanel.setLayout(SystemAdminLoginJPanelLayout);
         SystemAdminLoginJPanelLayout.setHorizontalGroup(
@@ -517,14 +508,11 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
                             .addGroup(SystemAdminLoginJPanelLayout.createSequentialGroup()
                                 .addGroup(SystemAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblUsername)
-                                    .addComponent(lblPassword)
-                                    .addComponent(lblNewUser))
-                                .addGap(18, 18, 18)
-                                .addGroup(SystemAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(SystemAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtUsername)
-                                        .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnCreateAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(lblPassword))
+                                .addGap(19, 19, 19)
+                                .addGroup(SystemAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtUsername)
+                                    .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(lblAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -543,11 +531,7 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
                     .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btnLogin)
-                .addGap(34, 34, 34)
-                .addGroup(SystemAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNewUser)
-                    .addComponent(btnCreateAccount))
-                .addGap(175, 175, 175))
+                .addGap(237, 237, 237))
         );
 
         jLayeredPane1.add(SystemAdminLoginJPanel, "card2");
@@ -1065,11 +1049,11 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
                     .addComponent(lblLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addGroup(SystemAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
+                .addGroup(SystemAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SystemAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdate)
-                        .addComponent(btnEdit)))
+                        .addComponent(btnEdit))
+                    .addComponent(btnBack))
                 .addGap(36, 36, 36))
         );
 
@@ -1628,6 +1612,7 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         jLayeredPane1.add(DoctorCreateJPanel, "card3");
 
         PatientCreateJPanel.setBackground(new java.awt.Color(51, 255, 255));
+        PatientCreateJPanel.setPreferredSize(new java.awt.Dimension(800, 600));
 
         lblCreateAccount5.setFont(new java.awt.Font("Klee", 1, 24)); // NOI18N
         lblCreateAccount5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1712,50 +1697,47 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         PatientCreateJPanel.setLayout(PatientCreateJPanelLayout);
         PatientCreateJPanelLayout.setHorizontalGroup(
             PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblCreateAccount5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lblAdminInfo4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblCreateAccount5, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lblAdminInfo4, javax.swing.GroupLayout.PREFERRED_SIZE, 975, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
+                        .addComponent(lblCreateUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCreateUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(lblCreatePassword5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCreatePassword5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
                         .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
-                                .addComponent(lblCreateUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblName4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCreateUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87)
-                                .addComponent(lblCreatePassword5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCreatePassword5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtName4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
                                 .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
-                                        .addComponent(lblName4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtName4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
-                                        .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblPhoneNum4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblGender4))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cmbGender4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPhoneNum4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(87, 87, 87)
+                                    .addComponent(lblPhoneNum4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblGender4))
+                                .addGap(18, 18, 18)
                                 .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
-                                        .addComponent(lblEmailAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtEmailAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
-                                        .addComponent(lblHomeAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtHomeAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
-                                        .addComponent(lblDOB4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtDOB4)))))
-                        .addContainerGap(311, Short.MAX_VALUE))
+                                    .addComponent(cmbGender4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhoneNum4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(87, 87, 87)
+                        .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
+                                .addComponent(lblEmailAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtEmailAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
+                                .addComponent(lblHomeAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtHomeAdd4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
+                                .addComponent(lblDOB4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtDOB4))))
                     .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
                         .addGroup(PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PatientCreateJPanelLayout.createSequentialGroup()
@@ -1776,8 +1758,7 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
                             .addGroup(PatientCreateJPanelLayout.createSequentialGroup()
                                 .addComponent(lblCommunity4, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCommunity4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(txtCommunity4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         PatientCreateJPanelLayout.setVerticalGroup(
             PatientCreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3380,30 +3361,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
-        SystemAdminCreateJPanel.setVisible(true);
-        SystemAdminWorkAreaJPanel.setVisible(false);
-        SystemAdminProfileJPanel.setVisible(false);
-        CommunityAdminCreateJPanel.setVisible(false);
-        SystemAdminLoginJPanel.setVisible(false);
-        HospitalAdminCreateJPanel.setVisible(false);
-        DoctorCreateJPanel.setVisible(false);
-        PatientCreateJPanel.setVisible(false);
-        ViewCommunityAdminJPanel.setVisible(false);
-        CommunityAdminProfileJPanel.setVisible(false);
-        ViewHospitalAdminJPanel.setVisible(false);
-        HospitalAdminProfileJPanel.setVisible(false);
-        ViewDoctorJPanel.setVisible(false);
-        DoctorProfileJPanel.setVisible(false);
-        ViewPatientJPanel.setVisible(false);
-        PatientProfileJPanel.setVisible(false);
-        ViewEncounterJPanel.setVisible(false);
-        AddEncounterJPanel.setVisible(false);
-        ViewActionHistoryJPanel.setVisible(false);
-
-    }//GEN-LAST:event_btnCreateAccountActionPerformed
-
     private void txtCreateUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCreateUsernameActionPerformed
@@ -3485,7 +3442,23 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Invalid Email Address.");
             saveflag = 0;
         }
-        else if (saveflag == 1){
+        for (admin sa : systemadminset.getHistory()){
+            if (sa.getUsername().equals(Username)){
+                JOptionPane.showMessageDialog(this, "Username Occupied.");
+                saveflag = 0;
+            }
+            if (sa.getEmployeeID() == EmployeeID){
+                JOptionPane.showMessageDialog(this, "Username Occupied.");
+                saveflag = 0;
+            }
+            if (sa.getPerson().getName().equals(Name) & sa.getPerson().getPhoneNum().equals(PhoneNum) & 
+                sa.getPerson().getGender().equals(Gender) & sa.getPerson().getEmailAdd().equals(EmailAdd) & 
+                    sa.getPerson().getDOB().equals(DOB)){
+                JOptionPane.showMessageDialog(this, "User Exists in System");
+                saveflag = 0;
+            }
+        }
+        if (saveflag == 1){
         admin ei = systemadminset.addNewAdmin();
         person ps = new person();
         ei.setUsername(Username);
@@ -3931,7 +3904,23 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Invalid Email Address.");
             saveflag = 0;
         }
-        else if (saveflag == 1){
+        for (admin ca : communityadminset.getHistory()){
+            if (ca.getUsername().equals(Username)){
+                    JOptionPane.showMessageDialog(this, "Username Occupied.");
+                    saveflag = 0;
+                }
+            if (ca.getEmployeeID()==EmployeeID){
+                    JOptionPane.showMessageDialog(this, "EmployeeID Occupied.");
+                    saveflag = 0;
+                }
+            if (ca.getPerson().getName().equals(Name) & ca.getPerson().getPhoneNum().equals(PhoneNum) & 
+                ca.getPerson().getGender().equals(Gender) & ca.getPerson().getEmailAdd().equals(EmailAdd) & 
+                    ca.getPerson().getDOB().equals(DOB)){
+                JOptionPane.showMessageDialog(this, "User Exists in System");
+                saveflag = 0;
+            }
+        }
+        if (saveflag == 1){
         admin ei = communityadminset.addNewCommunityAdmin();
         person ps = new person();
         ei.setUsername(Username);
@@ -4056,7 +4045,22 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Invalid Email Address.");
             saveflag = 0;
         }
-        else if (saveflag == 1){
+        for (admin ha : hospitaladminset.getHistory()){
+            if (ha.getUsername().equals(Username)){
+                    JOptionPane.showMessageDialog(this, "Username Occupied.");
+                    saveflag = 0;
+                }
+            if (ha.getEmployeeID()==EmployeeID){
+                    JOptionPane.showMessageDialog(this, "EmployeeID Occupied.");
+                    saveflag = 0;
+                }
+            if (ha.getPerson().getName().equals(Name) & ha.getPerson().getPhoneNum().equals(PhoneNum) & 
+                ha.getPerson().getGender().equals(Gender) & ha.getPerson().getEmailAdd().equals(EmailAdd) & 
+                    ha.getPerson().getDOB().equals(DOB)){
+                JOptionPane.showMessageDialog(this, "User Exists in System");
+                saveflag = 0;
+            }
+        if (saveflag == 1){
         admin ei = hospitaladminset.addNewAdmin();
         person ps = new person();
         ei.setUsername(Username);
@@ -4088,6 +4092,7 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
         ah.setPerson("System Administrator");
         ah.setName(systemadminset.getHistory().get(index).getPerson().getName());
         ah.setModification("Create New Hospital Admin Account.");
+        }
         }
     }//GEN-LAST:event_btnCreate2ActionPerformed
 
@@ -4172,8 +4177,35 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Invalid Major.");
             saveflag = 0;
         }
+        int hsflag = 0;
+        for (hospital hs: hospitallist.getHistory()){
+            if (hs.getHospitalName().equals(Hospital)){
+                hsflag = 1;
+            }
+        }
+        if (hsflag == 0){
+            JOptionPane.showMessageDialog(this, "Hospital Doesn't Exist");
+            saveflag = 0;
+        }
+        for (doctor dc : doctorset.getHistory()){
+        if (dc.getUsername().equals(Username)){
+                JOptionPane.showMessageDialog(this, "Username Occupied.");
+                saveflag = 0;
+            }
+        if (dc.getEmployeeID()==EmployeeID){
+                JOptionPane.showMessageDialog(this, "EmployeeID Occupied.");
+                saveflag = 0;
+            }
+        
+        if (dc.getPerson().getName().equals(Name) & dc.getPerson().getPhoneNum().equals(PhoneNum) & 
+            dc.getPerson().getGender().equals(Gender) & dc.getPerson().getEmailAdd().equals(EmailAdd) & 
+                dc.getPerson().getDOB().equals(DOB)){
+            JOptionPane.showMessageDialog(this, "User Exists in System");
+            saveflag = 0;
+        }
 
-        else if (saveflag == 1){
+        }
+        if (saveflag == 1){
             doctor ei = doctorset.addNewDoctor();
             person ps = new person();
             hospital hp = new hospital();
@@ -4303,7 +4335,19 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
             saveflag = 0;
         }
 
-        else if (saveflag == 1){
+        for (patient pt : patientset.getHistory()){
+        if (pt.getUsername().equals(Username)){
+                JOptionPane.showMessageDialog(this, "Username Occupied.");
+                saveflag = 0;
+            }
+        if (pt.getPerson().getName().equals(Name) & pt.getPerson().getPhoneNum().equals(PhoneNum) & 
+            pt.getPerson().getGender().equals(Gender) & pt.getPerson().getEmailAdd().equals(EmailAdd) & 
+               pt.getPerson().getDOB().equals(DOB)){
+            JOptionPane.showMessageDialog(this, "User Exists in System");
+            saveflag = 0;
+        }
+        }
+        if (saveflag == 1){
             patient cp = patientset.addNewPatient();
             person ps = new person();
             city ct = new city();
@@ -6227,7 +6271,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate2;
     private javax.swing.JButton btnCreate4;
     private javax.swing.JButton btnCreate5;
-    private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnCreateNew;
     private javax.swing.JButton btnDeleteEncounter;
     private javax.swing.JButton btnDeleteEncounter2;
@@ -6397,7 +6440,6 @@ public class SystemAdminLoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName7;
     private javax.swing.JLabel lblName8;
     private javax.swing.JLabel lblName9;
-    private javax.swing.JLabel lblNewUser;
     private javax.swing.JLabel lblNotes;
     private javax.swing.JLabel lblNotes1;
     private javax.swing.JLabel lblPassword;

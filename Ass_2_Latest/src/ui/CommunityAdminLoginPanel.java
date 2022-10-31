@@ -7,6 +7,8 @@ package ui;
 import java.awt.geom.Area;
 import static java.lang.reflect.Array.set;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 import java.util.Date;
 import static javax.management.Query.or;
@@ -102,8 +104,6 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         pwdPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        lblNewUser = new javax.swing.JLabel();
-        btnCreateAccount = new javax.swing.JButton();
         CommunityAdminCreateJPanel = new javax.swing.JPanel();
         lblCreateAccount = new javax.swing.JLabel();
         lblCreatePassword = new javax.swing.JLabel();
@@ -275,16 +275,6 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
             }
         });
 
-        lblNewUser.setFont(new java.awt.Font("Klee", 1, 18)); // NOI18N
-        lblNewUser.setText("New User?");
-
-        btnCreateAccount.setText("Create Account");
-        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAccountActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout CommunityAdminLoginJPanelLayout = new javax.swing.GroupLayout(CommunityAdminLoginJPanel);
         CommunityAdminLoginJPanel.setLayout(CommunityAdminLoginJPanelLayout);
         CommunityAdminLoginJPanelLayout.setHorizontalGroup(
@@ -296,18 +286,15 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
                     .addGroup(CommunityAdminLoginJPanelLayout.createSequentialGroup()
                         .addGroup(CommunityAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsername)
-                            .addComponent(lblPassword)
-                            .addComponent(lblNewUser))
-                        .addGap(18, 18, 18)
-                        .addGroup(CommunityAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(CommunityAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUsername)
-                                .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnCreateAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblPassword))
+                        .addGap(19, 19, 19)
+                        .addGroup(CommunityAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername)
+                            .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(CommunityAdminLoginJPanelLayout.createSequentialGroup()
                 .addComponent(lblAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 199, Short.MAX_VALUE))
         );
         CommunityAdminLoginJPanelLayout.setVerticalGroup(
             CommunityAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,11 +311,7 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
                     .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btnLogin)
-                .addGap(34, 34, 34)
-                .addGroup(CommunityAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNewUser)
-                    .addComponent(btnCreateAccount))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(CommunityAdminLoginJPanel, "card2");
@@ -1532,20 +1515,6 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_pwdPasswordActionPerformed
 
-    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
-        CommunityAdminCreateJPanel.setVisible(true);
-        CommunityAdminProfileJPanel.setVisible(false);
-        CommunityAdminWorkAreaJPanel.setVisible(false);
-        CommunityAdminLoginJPanel.setVisible(false);
-        ResidentProfileJPanel.setVisible(false);
-        AddHouseJPanel.setVisible(false);
-        AddCommunityJPanel.setVisible(false);
-        AddCityJPanel.setVisible(false);
-        AddResidentJPanel.setVisible(false);
-        
-    }//GEN-LAST:event_btnCreateAccountActionPerformed
-
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         if (txtEmployeeID.getText().contains("[a-zA-Z]+")){
@@ -1564,7 +1533,10 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
         String Username = txtCreateUsername.getText();
         String Password = txtCreatePassword.getText();
         String Name = txtName.getText();
-        LocalDate DOB = LocalDate.parse(txtDOB.getText());
+//        LocalDate DOB = LocalDate.parse(txtDOB.getText());
+        LocalDate DOB;// Define a formatting pattern to match your input string.
+        DOB = LocalDate.parse(txtDOB.getText(),// Input string.
+                DateTimeFormatter.ofPattern("yyyy-mm-dd").withResolverStyle((ResolverStyle.STRICT)));
         int EmployeeID = Integer.parseInt(txtEmployeeID.getText());
         String Gender = cmbGender.getSelectedItem().toString();
         String PhoneNum = txtPhoneNum.getText();
@@ -1786,6 +1758,9 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
         String Password = txtShowPassword.getText();
         String Name = txtName1.getText();
         LocalDate DOB = LocalDate.parse(txtDOB1.getText());
+//        LocalDate DOB;// Define a formatting pattern to match your input string.
+//        DOB = LocalDate.parse(txtDOB1.getText(),// Input string.
+//                DateTimeFormatter.ofPattern("yyyy-mm-dd").withResolverStyle((ResolverStyle.STRICT)));
         int EmployeeID = Integer.parseInt(txtEmployeeID1.getText());
         String Gender = cmbGender1.getSelectedItem().toString();
         String PhoneNum = txtPhoneNum1.getText();
@@ -2592,7 +2567,6 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack4;
     private javax.swing.JButton btnBack5;
     private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnDeleteResident;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEdit1;
@@ -2651,7 +2625,6 @@ public class CommunityAdminLoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblName2;
     private javax.swing.JLabel lblName3;
-    private javax.swing.JLabel lblNewUser;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhoneNum;
     private javax.swing.JLabel lblPhoneNum1;

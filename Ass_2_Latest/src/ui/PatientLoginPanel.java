@@ -133,8 +133,6 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         pwdPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        lblNewUser = new javax.swing.JLabel();
-        btnCreateAccount = new javax.swing.JButton();
         PatientProfileJPanel = new javax.swing.JPanel();
         lblCreatePassword = new javax.swing.JLabel();
         lblCreateUsername = new javax.swing.JLabel();
@@ -336,16 +334,6 @@ public class PatientLoginPanel extends javax.swing.JPanel {
             }
         });
 
-        lblNewUser.setFont(new java.awt.Font("Klee", 1, 18)); // NOI18N
-        lblNewUser.setText("New User?");
-
-        btnCreateAccount.setText("Create Account");
-        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAccountActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PatientLoginJPanelLayout = new javax.swing.GroupLayout(PatientLoginJPanel);
         PatientLoginJPanel.setLayout(PatientLoginJPanelLayout);
         PatientLoginJPanelLayout.setHorizontalGroup(
@@ -358,14 +346,11 @@ public class PatientLoginPanel extends javax.swing.JPanel {
                     .addGroup(PatientLoginJPanelLayout.createSequentialGroup()
                         .addGroup(PatientLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsername)
-                            .addComponent(lblPassword)
-                            .addComponent(lblNewUser))
-                        .addGap(18, 18, 18)
-                        .addGroup(PatientLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PatientLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUsername)
-                                .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnCreateAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblPassword))
+                        .addGap(19, 19, 19)
+                        .addGroup(PatientLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername)
+                            .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(323, Short.MAX_VALUE))
         );
         PatientLoginJPanelLayout.setVerticalGroup(
@@ -383,11 +368,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
                     .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btnLogin)
-                .addGap(34, 34, 34)
-                .addGroup(PatientLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNewUser)
-                    .addComponent(btnCreateAccount))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(PatientLoginJPanel, "card2");
@@ -1187,11 +1168,11 @@ public class PatientLoginPanel extends javax.swing.JPanel {
                     .addComponent(lblNotes)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
-                .addGroup(ViewEncounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack2)
+                .addGroup(ViewEncounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ViewEncounterJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdate1)
-                        .addComponent(btnEdit1)))
+                        .addComponent(btnEdit1))
+                    .addComponent(btnBack2))
                 .addGap(72, 72, 72))
         );
 
@@ -1802,21 +1783,6 @@ public class PatientLoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_pwdPasswordActionPerformed
 
-    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
-        PatientLoginJPanel.setVisible(false);
-        PatientWorkAreaJPanel.setVisible(false);
-        PatientProfileJPanel.setVisible(false);
-        FindADoctorJPanel.setVisible(false);
-        PatientEncounterHistoryJPanel.setVisible(false);
-        ViewEncounterJPanel.setVisible(false);
-        ViewAppointmentJPanel.setVisible(false);
-        PatientCreateJPanel.setVisible(true);
-        BookAppointmentJPanel.setVisible(false);
-        AddEncounterJPanel.setVisible(false);
-        
-    }//GEN-LAST:event_btnCreateAccountActionPerformed
-
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
 //        if (txtHomeAdd.getText().contains("[a-zA-Z]+")){
@@ -2417,6 +2383,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
 
     private void cmbSearchDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSearchDoctorActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_cmbSearchDoctorActionPerformed
 
     private void btnSearchDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchDoctorActionPerformed
@@ -2431,7 +2398,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
             tr.setRowFilter(RowFilter.regexFilter(txtSearchDoctor.getText().trim()));
         }
         //
-        else if (cmbSearch.getSelectedItem().toString().matches("Doctor")) {
+        else if (cmbSearchDoctor.getSelectedItem().toString().matches("Doctor")) {
 
             DefaultTableModel model = (DefaultTableModel) tblAppointments.getModel();
             TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
@@ -2439,7 +2406,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
             tr.setRowFilter(RowFilter.regexFilter(txtSearchDoctor.getText().trim(), 0));
         }
         //
-        else if (cmbSearch.getSelectedItem().toString().matches("Hospital")) {
+        else if (cmbSearchDoctor.getSelectedItem().toString().matches("Hospital")) {
 
             DefaultTableModel model = (DefaultTableModel) tblAppointments.getModel();
             TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
@@ -2447,7 +2414,7 @@ public class PatientLoginPanel extends javax.swing.JPanel {
             tr.setRowFilter(RowFilter.regexFilter(txtSearchDoctor.getText().trim(), 1));
         }
 
-        else if (cmbSearch.getSelectedItem().toString().matches("Community")) {
+        else if (cmbSearchDoctor.getSelectedItem().toString().matches("Community")) {
 
             DefaultTableModel model = (DefaultTableModel) tblAppointments.getModel();
             TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
@@ -3016,7 +2983,6 @@ public class PatientLoginPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnCreate4;
-    private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEdit1;
@@ -3095,7 +3061,6 @@ public class PatientLoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblHospitalPostalCode1;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName4;
-    private javax.swing.JLabel lblNewUser;
     private javax.swing.JLabel lblNotes;
     private javax.swing.JLabel lblNotes1;
     private javax.swing.JLabel lblPassword;

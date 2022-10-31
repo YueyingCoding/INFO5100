@@ -71,15 +71,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblUsername" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNewUser" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtUsername" max="32767" attributes="0"/>
-                                      <Component id="pwdPassword" min="-2" pref="139" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnCreateAccount" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtUsername" max="32767" attributes="0"/>
+                                  <Component id="pwdPassword" min="-2" pref="139" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -104,12 +100,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="btnLogin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblNewUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCreateAccount" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="175" max="32767" attributes="0"/>
+                      <EmptySpace pref="237" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -153,22 +144,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNewUser">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Klee" size="18" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="New User?"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnCreateAccount">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Create Account"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateAccountActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -732,12 +707,12 @@
                           <Component id="txtMajor1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
@@ -1219,12 +1194,12 @@
                           <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnBack2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnUpdate1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEdit1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="btnBack2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>

@@ -114,8 +114,6 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         pwdPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
-        lblNewUser = new javax.swing.JLabel();
-        btnCreateAccount = new javax.swing.JButton();
         HospitalAdminCreateJPanel = new javax.swing.JPanel();
         lblCreateAccount = new javax.swing.JLabel();
         lblCreatePassword = new javax.swing.JLabel();
@@ -371,16 +369,6 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
             }
         });
 
-        lblNewUser.setFont(new java.awt.Font("Klee", 1, 18)); // NOI18N
-        lblNewUser.setText("New User?");
-
-        btnCreateAccount.setText("Create Account");
-        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateAccountActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout HospitalAdminLoginJPanelLayout = new javax.swing.GroupLayout(HospitalAdminLoginJPanel);
         HospitalAdminLoginJPanel.setLayout(HospitalAdminLoginJPanelLayout);
         HospitalAdminLoginJPanelLayout.setHorizontalGroup(
@@ -393,14 +381,11 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
                     .addGroup(HospitalAdminLoginJPanelLayout.createSequentialGroup()
                         .addGroup(HospitalAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsername)
-                            .addComponent(lblPassword)
-                            .addComponent(lblNewUser))
-                        .addGap(18, 18, 18)
-                        .addGroup(HospitalAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(HospitalAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtUsername)
-                                .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnCreateAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(lblPassword))
+                        .addGap(19, 19, 19)
+                        .addGroup(HospitalAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername)
+                            .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         HospitalAdminLoginJPanelLayout.setVerticalGroup(
             HospitalAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,11 +402,7 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
                     .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btnLogin)
-                .addGap(34, 34, 34)
-                .addGroup(HospitalAdminLoginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNewUser)
-                    .addComponent(btnCreateAccount))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(HospitalAdminLoginJPanel, "card2");
@@ -701,21 +682,21 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(HospitalAdminWorkAreaJPanelLayout.createSequentialGroup()
-                .addComponent(lblCreateNew1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(HospitalAdminWorkAreaJPanelLayout.createSequentialGroup()
-                .addGap(197, 197, 197)
                 .addGroup(HospitalAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HospitalAdminWorkAreaJPanelLayout.createSequentialGroup()
-                        .addComponent(btnProfile)
-                        .addGap(31, 31, 31))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HospitalAdminWorkAreaJPanelLayout.createSequentialGroup()
-                        .addComponent(cmbUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(btnCreateNew)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnView)
-                        .addGap(266, 266, 266)))
+                    .addComponent(lblCreateNew1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(HospitalAdminWorkAreaJPanelLayout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addGroup(HospitalAdminWorkAreaJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HospitalAdminWorkAreaJPanelLayout.createSequentialGroup()
+                                .addComponent(btnProfile)
+                                .addGap(31, 31, 31))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HospitalAdminWorkAreaJPanelLayout.createSequentialGroup()
+                                .addComponent(cmbUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(100, 100, 100)
+                                .addComponent(btnCreateNew)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnView)
+                                .addGap(266, 266, 266)))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         HospitalAdminWorkAreaJPanelLayout.setVerticalGroup(
@@ -2196,11 +2177,11 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
                     .addComponent(lblLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addGroup(HospitalAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
+                .addGroup(HospitalAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HospitalAdminProfileJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnUpdate)
-                        .addComponent(btnEdit)))
+                        .addComponent(btnEdit))
+                    .addComponent(btnBack))
                 .addGap(36, 36, 36))
         );
 
@@ -2210,7 +2191,7 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 812, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2266,23 +2247,6 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
         //        txtUsername.getText();
 
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-        // TODO add your handling code here:
-        HospitalAdminLoginJPanel.setVisible(false);
-        HospitalAdminProfileJPanel.setVisible(false);
-        HospitalAdminWorkAreaJPanel.setVisible(false);
-        HospitalAdminCreateJPanel.setVisible(true);
-        ViewEncounterJPanel.setVisible(false);
-        AddEncounterJPanel.setVisible(false);
-        DoctorCreateJPanel.setVisible(false);
-        PatientCreateJPanel.setVisible(false);
-        ViewDoctorJPanel.setVisible(false);
-        ViewPatientJPanel.setVisible(false);
-        DoctorProfileJPanel.setVisible(false);
-        PatientProfileJPanel.setVisible(false);
-
-    }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void txtCreateUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreateUsernameActionPerformed
         // TODO add your handling code here:
@@ -3985,7 +3949,6 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnCreate4;
     private javax.swing.JButton btnCreate5;
-    private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnCreateNew;
     private javax.swing.JButton btnDeleteEncounter;
     private javax.swing.JButton btnDeleteEncounter3;
@@ -4096,7 +4059,6 @@ public class HospitalAdminLoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblName5;
     private javax.swing.JLabel lblName8;
     private javax.swing.JLabel lblName9;
-    private javax.swing.JLabel lblNewUser;
     private javax.swing.JLabel lblNotes;
     private javax.swing.JLabel lblNotes1;
     private javax.swing.JLabel lblPassword;
