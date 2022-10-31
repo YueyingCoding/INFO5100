@@ -39,7 +39,7 @@ import model.personset;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class SystemAdminLoginPanel extends javax.swing.JPanel {
 

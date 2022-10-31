@@ -33,7 +33,7 @@ import model.personset;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class HospitalAdminLoginPanel extends javax.swing.JPanel {
 

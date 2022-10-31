@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class Action {
     private String Person;

@@ -37,7 +37,7 @@ import model.personset;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class CommunityAdminLoginPanel extends javax.swing.JPanel {
 

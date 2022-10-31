@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class hospital {
     private String HospitalName;

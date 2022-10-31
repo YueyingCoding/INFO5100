@@ -43,7 +43,7 @@ import model.personset;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class PatientLoginPanel extends javax.swing.JPanel {
 

@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class citylist {
     private ArrayList<city> list;

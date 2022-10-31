@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class hospitaladminset {
     private ArrayList<admin> set;

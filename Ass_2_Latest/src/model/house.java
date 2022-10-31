@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class house {
     private community community;

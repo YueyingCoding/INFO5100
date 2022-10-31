@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class admin {
     private person Person;

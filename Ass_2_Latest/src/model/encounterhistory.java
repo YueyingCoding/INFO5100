@@ -11,7 +11,7 @@ import model.VitalSigns;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class encounterhistory {
     private ArrayList<encounter> history;

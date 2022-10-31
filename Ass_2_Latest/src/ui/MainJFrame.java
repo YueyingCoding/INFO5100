@@ -24,7 +24,7 @@ import model.personset;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class MainJFrame extends javax.swing.JFrame {
 

@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class patient {
     private house HomeAdd;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class community {
     private city city;
