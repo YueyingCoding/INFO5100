@@ -11,16 +11,13 @@ import java.util.Date;
  * @author chengzhishi
  */
 public class doctor {
+//    
+    private person Person;
+    private int EmployeeID;
+    private hospital Hospital;
+    private String Major;
     private String Username;
     private String Password;
-    private String Name;
-    private int EmployeeID;
-    private String Gender;
-    private Date DOB;
-    private String PhoneNum;
-    private String EmailAdd;
-    private String Hospital;
-    private String Major;
 
     public String getUsername() {
         return Username;
@@ -38,13 +35,47 @@ public class doctor {
         this.Password = Password;
     }
 
-    public String getName() {
-        return Name;
+    
+    public hospital getHospital() {
+        return Hospital;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setHospital(hospital Hospital) {
+        this.Hospital = Hospital;
     }
+
+    
+    public person getPerson() {
+        return Person;
+    }
+
+    public void setPerson(person Person) {
+        this.Person = Person;
+    }
+
+//    public String getUsername() {
+//        return Username;
+//    }
+//
+//    public void setUsername(String Username) {
+//        this.Username = Username;
+//    }
+//
+//    public String getPassword() {
+//        return Password;
+//    }
+//
+//    public void setPassword(String Password) {
+//        this.Password = Password;
+//    }
+//
+//    public String getName() {
+//        return Name;
+//    }
+//
+//    public void setName(String Name) {
+//        this.Name = Name;
+//    }
 
     public int getEmployeeID() {
         return EmployeeID;
@@ -54,45 +85,45 @@ public class doctor {
         this.EmployeeID = EmployeeID;
     }
 
-    public String getGender() {
-        return Gender;
-    }
+//    public String getGender() {
+//        return Gender;
+//    }
+//
+//    public void setGender(String Gender) {
+//        this.Gender = Gender;
+//    }
+//
+//    public Date getDOB() {
+//        return DOB;
+//    }
+//
+//    public void setDOB(Date DOB) {
+//        this.DOB = DOB;
+//    }
+//
+//    public String getPhoneNum() {
+//        return PhoneNum;
+//    }
 
-    public void setGender(String Gender) {
-        this.Gender = Gender;
-    }
+//    public void setPhoneNum(String PhoneNum) {
+//        this.PhoneNum = PhoneNum;
+//    }
+//
+//    public String getEmailAdd() {
+//        return EmailAdd;
+//    }
+//
+//    public void setEmailAdd(String EmailAdd) {
+//        this.EmailAdd = EmailAdd;
+//    }
 
-    public Date getDOB() {
-        return DOB;
-    }
-
-    public void setDOB(Date DOB) {
-        this.DOB = DOB;
-    }
-
-    public String getPhoneNum() {
-        return PhoneNum;
-    }
-
-    public void setPhoneNum(String PhoneNum) {
-        this.PhoneNum = PhoneNum;
-    }
-
-    public String getEmailAdd() {
-        return EmailAdd;
-    }
-
-    public void setEmailAdd(String EmailAdd) {
-        this.EmailAdd = EmailAdd;
-    }
-
-    public String getHospital() {
-        return Hospital;
-    }
-
-    public void setHospital(String Hospital) {
-        this.Hospital = Hospital;
-    }
+//    public String getHospital() {
+//        return Hospital;
+//    }
+//
+//    public void setHospital(String Hospital) {
+//        this.Hospital = Hospital;
+//    }
 
     public String getMajor() {
         return Major;
@@ -102,5 +133,10 @@ public class doctor {
         this.Major = Major;
     }
     
+    @Override
+    public String toString(){
+        String Name = this.getPerson().getName();
+        return Name;
+    }
     
 }

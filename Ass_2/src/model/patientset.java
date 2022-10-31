@@ -5,6 +5,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -13,8 +14,33 @@ import java.util.ArrayList;
 public class patientset {
     private ArrayList<patient> set;
     
+    patient ei = new patient();
     public patientset(){
         this.set = new ArrayList<patient>();
+        
+        Date dl = new Date(2009,9,20);
+        person ps = new person();
+        city ct = new city();
+        community cm = new community();
+        house hs = new house();
+        hs.setAddress("001 Harvard Street");
+        ps.setDOB(dl);
+        ei.setUsername("ABCDE");
+        ei.setPassword("12345");
+        ps.setPhoneNum("2143658709");
+        ps.setEmailAdd("sjje9wi@slwk.com");
+        ps.setGender("Male");
+        ps.setName("ABCDE");
+        ct.setName("AA");
+        ei.setCity(ct);
+        cm.setName("AB");
+        ei.setCommunity(cm);
+        ei.setHomeAdd(hs);
+        ei.setPostalCode("01234");
+        ei.setInsurance(Boolean.TRUE);
+        ei.setPerson(ps);
+        
+        set.add(ei);
     }
 
     public ArrayList<patient> getHistory() {

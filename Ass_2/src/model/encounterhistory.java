@@ -5,6 +5,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
+import model.VitalSigns;
 
 /**
  *
@@ -12,9 +14,22 @@ import java.util.ArrayList;
  */
 public class encounterhistory {
     private ArrayList<encounter> history;
-    
+    encounter eh = new encounter();
+    VitalSigns vitalsigns = new VitalSigns();
     public encounterhistory(){
         this.history = new ArrayList<encounter>();
+        Date ed = new Date(99, 3, 10);
+        eh.setDoctorName("ABCD");
+        eh.setPatientName("ABCDE");
+        eh.setEncounterDate(ed);
+        vitalsigns.setBloodPressure(100);
+        vitalsigns.setHeartRate(90);
+        vitalsigns.setTemperature((float) 36.5);
+        eh.setVitalSigns(vitalsigns);
+        eh.setDiagnosis("Diabetes");
+        eh.setNotes("Eat Less Sugar");
+        
+        history.add(eh);
     }
 
     public ArrayList<encounter> getHistory() {

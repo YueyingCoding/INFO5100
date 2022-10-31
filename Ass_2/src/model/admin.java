@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.ImageIcon;
 
@@ -12,14 +14,12 @@ import javax.swing.ImageIcon;
  * @author chengzhishi
  */
 public class admin {
+    private person Person;
+    private int EmployeeID;
+    private String Department;
+    private int Level;
     private String Username;
     private String Password;
-    private String Name;
-    private int EmployeeID;
-    private String Gender;
-    private Date DOB;
-    private String PhoneNum;
-    private String EmailAdd;
 
     public String getUsername() {
         return Username;
@@ -37,12 +37,13 @@ public class admin {
         this.Password = Password;
     }
 
-    public String getName() {
-        return Name;
+    
+    public person getPerson() {
+        return Person;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setPerson(person Person) {
+        this.Person = Person;
     }
 
     public int getEmployeeID() {
@@ -53,39 +54,28 @@ public class admin {
         this.EmployeeID = EmployeeID;
     }
 
-    public String getGender() {
-        return Gender;
+    public String getDepartment() {
+        return Department;
     }
 
-    public void setGender(String Gender) {
-        this.Gender = Gender;
+    public void setDepartment(String Department) {
+        this.Department = Department;
     }
 
-    public Date getDOB() {
-        return DOB;
+    public int getLevel() {
+        return Level;
     }
 
-    public void setDOB(Date DOB) {
-        this.DOB = DOB;
+    public void setLevel(int Level) {
+        this.Level = Level;
     }
-
-    public String getPhoneNum() {
-        return PhoneNum;
-    }
-
-    public void setPhoneNum(String PhoneNum) {
-        this.PhoneNum = PhoneNum;
-    }
-
     
-
-    public String getEmailAdd() {
-        return EmailAdd;
+    @Override
+    public String toString(){
+        String Name = this.getPerson().getName();
+        return Name;
     }
-
-    public void setEmailAdd(String EmailAdd) {
-        this.EmailAdd = EmailAdd;
-    }
+    
     
     
 }

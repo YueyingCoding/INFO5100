@@ -5,9 +5,22 @@
 package ui;
 
 import static java.lang.reflect.Array.set;
+import javax.swing.table.DefaultTableModel;
+import model.ActionHistory;
 import model.adminset;
+import model.appointment;
+import model.appointmentlist;
+import model.city;
+import model.citylist;
+import model.community;
+import model.communityadminset;
+import model.doctor;
 import model.doctorset;
+import model.encounterhistory;
+import model.hospitaladminset;
+import model.hospitallist;
 import model.patientset;
+import model.personset;
 
 /**
  *
@@ -18,17 +31,36 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    adminset communityadminset;
-    adminset systemadminset;
+    communityadminset communityadminset;
     doctorset doctorset;
+    adminset systemadminset;
     patientset patientset;
+    appointmentlist appointmentlist;
+    encounterhistory encounterhistory;
+    hospitaladminset hospitaladminset;
+    hospitallist hospitallist;
+    personset personset;
+    ActionHistory actionhistory;
+    community community;
+    city city;
+    citylist citylist;
+    
     public MainJFrame() {
         initComponents();
         systemadminset = new adminset();
-        communityadminset = new adminset();
+        communityadminset = new communityadminset();
+        hospitaladminset = new hospitaladminset();
+        appointmentlist = new appointmentlist();
+        encounterhistory = new encounterhistory();
+        hospitallist = new hospitallist();
+        actionhistory = new ActionHistory();
         
         doctorset = new doctorset();
         patientset = new patientset();
+        personset = new personset();
+        community = new community();
+        city = new city();
+        citylist = new citylist();
     }
 
     /**
@@ -82,6 +114,11 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         btnHospitalAdmin.setText("Hospital Admin");
+        btnHospitalAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHospitalAdminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ControlPlaneLayout = new javax.swing.GroupLayout(ControlPlane);
         ControlPlane.setLayout(ControlPlaneLayout);
@@ -150,31 +187,62 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
         // TODO add your handling code here:
-        DoctorLoginPanel doctorloginPanel = new DoctorLoginPanel(doctorset);
+//        try to parse the appointmentlist object to the doctor panel.
+        DoctorLoginPanel doctorloginPanel = new DoctorLoginPanel(systemadminset, 
+                communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(doctorloginPanel);
         doctorloginPanel.setVisible(true);
+//        DoctorLoginPanel doctorloginPanel = new DoctorLoginPanel(appointmentlist, doctorset, encounterhistory);
+//        splitPane.setRightComponent(doctorloginPanel);
+//        doctorloginPanel.setVisible(true);
+//        populateappointmentTable();
     }//GEN-LAST:event_btnDoctorActionPerformed
 
     private void btnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityAdminActionPerformed
         // TODO add your handling code here:
-        CommunityAdminLoginPanel adminloginPanel = new CommunityAdminLoginPanel(communityadminset);
+        CommunityAdminLoginPanel adminloginPanel = new CommunityAdminLoginPanel(systemadminset, 
+                communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(adminloginPanel);
         adminloginPanel.setVisible(true);
+//        CommunityAdminLoginPanel adminloginPanel = new CommunityAdminLoginPanel(communityadminset);
+//        splitPane.setRightComponent(adminloginPanel);
+//        adminloginPanel.setVisible(true);
     }//GEN-LAST:event_btnCommunityAdminActionPerformed
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-        PatientLoginPanel patientloginPanel = new PatientLoginPanel(patientset);
+        PatientLoginPanel patientloginPanel = new PatientLoginPanel(systemadminset, 
+                communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(patientloginPanel);
         patientloginPanel.setVisible(true);
+//        PatientLoginPanel patientloginPanel = new PatientLoginPanel(appointmentlist, doctorset, encounterhistory);
+//        splitPane.setRightComponent(patientloginPanel);
+//        patientloginPanel.setVisible(true);
     }//GEN-LAST:event_btnPatientActionPerformed
 
     private void btnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemAdminActionPerformed
         // TODO add your handling code here:
-        SystemAdminLoginPanel systemadminloginPanel = new SystemAdminLoginPanel(systemadminset);
+        SystemAdminLoginPanel systemadminloginPanel = new SystemAdminLoginPanel(systemadminset, 
+                communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
+        patientset, personset, actionhistory, community, city, citylist);
         splitPane.setRightComponent(systemadminloginPanel);
         systemadminloginPanel.setVisible(true);
     }//GEN-LAST:event_btnSystemAdminActionPerformed
+
+    private void btnHospitalAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalAdminActionPerformed
+        // TODO add your handling code here:
+        HospitalAdminLoginPanel hospitaladminloginPanel = new HospitalAdminLoginPanel(systemadminset, 
+                communityadminset, hospitaladminset, appointmentlist, doctorset, encounterhistory, hospitallist,
+        patientset, personset, actionhistory, community, city, citylist);
+        splitPane.setRightComponent(hospitaladminloginPanel);
+        hospitaladminloginPanel.setVisible(true);
+//        HospitalAdminLoginPanel hospitaladminloginPanel = new HospitalAdminLoginPanel(hospitaladminset);
+//        splitPane.setRightComponent(hospitaladminloginPanel);
+//        hospitaladminloginPanel.setVisible(true);
+    }//GEN-LAST:event_btnHospitalAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,4 +290,20 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblLoginPage;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
+
+//    private void populateappointmentTable() {
+//        DefaultTableModel model = (DefaultTableModel) DoctorLoginPanel.tblDoctorUpcomingEvents.getModel();
+//        model.setRowCount(0);
+//        doctor cd = doctorset.getHistory().get(index);
+////        appointment ca = appointmentlist.getHistory().get(index);
+//        
+//        for (appointment ca : appointmentlist.getHistory()){
+//            if (ca.getDoctorName().equals(cd.getName())) {
+//                Object[] row = new Object[2];
+//                row[0] = ca;
+//                row[1] = ca.getPatientName();
+//                model.addRow(row); 
+//            }
+//        }
+//    }
 }

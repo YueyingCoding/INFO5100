@@ -10,18 +10,28 @@ import java.util.Date;
 
 /**
  *
- * @author chengzhishi
+ * @author yueyingliang
  */
 public class encounter {
     private String DoctorName;
     private String PatientName;
-    private int BloodPressure;
-    private int HeartRate;
-    private int Temperature;
+//    private int BloodPressure;
+//    private int HeartRate;
+//    private float Temperature;
     private Date EncounterDate;
     private String Diagnosis;
     private String Notes;
+    private VitalSigns VitalSigns;
 
+    public VitalSigns getVitalSigns() {
+        return VitalSigns;
+    }
+
+    public void setVitalSigns(VitalSigns VitalSigns) {
+        this.VitalSigns = VitalSigns;
+    }
+
+    
     public String getDoctorName() {
         return DoctorName;
     }
@@ -37,31 +47,7 @@ public class encounter {
     public void setPatientName(String PatientName) {
         this.PatientName = PatientName;
     }
-
-    public int getBloodPressure() {
-        return BloodPressure;
-    }
-
-    public void setBloodPressure(int BloodPressure) {
-        this.BloodPressure = BloodPressure;
-    }
-
-    public int getHeartRate() {
-        return HeartRate;
-    }
-
-    public void setHeartRate(int HeartRate) {
-        this.HeartRate = HeartRate;
-    }
-
-    public int getTemperature() {
-        return Temperature;
-    }
-
-    public void setTemperature(int Temperature) {
-        this.Temperature = Temperature;
-    }
-
+    
     public Date getEncounterDate() {
         return EncounterDate;
     }

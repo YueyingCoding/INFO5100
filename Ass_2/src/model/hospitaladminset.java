@@ -11,14 +11,14 @@ import java.util.Date;
  *
  * @author chengzhishi
  */
-public class adminset {
+public class hospitaladminset {
     private ArrayList<admin> set;
     admin ei = new admin();
-    public adminset(){
+    public hospitaladminset(){
         this.set = new ArrayList<admin>();
         person ps = new person();
         Date dl = new Date(11,11,2000);
-        ei.setUsername("ABC");
+        ei.setUsername("ABc");
         ei.setPassword("123");
         ps.setPhoneNum("123456789");
         ps.setEmailAdd("sjwkeu@slk.com");
@@ -26,7 +26,7 @@ public class adminset {
         ps.setGender("Male");
         ps.setName("ABC");
         ps.setDOB(dl);
-        ei.setDepartment("System");
+        ei.setDepartment("Hospital");
         ei.setLevel(1);
         ei.setPerson(ps);
         
